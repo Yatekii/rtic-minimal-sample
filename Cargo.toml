@@ -1,0 +1,27 @@
+[package]
+name = "rtic-minimal-sample"
+version = "0.1.0"
+authors = ["Noah Hüsser <nh@technokrat.ch>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cortex-m = "0.6.0"
+cortex-m-rt = "0.6.10"
+stm32l4xx-hal = { git = "https://github.com/stm32-rs/stm32l4xx-hal", features = ["stm32l4x2", "rt"] }
+rtt-target = { version="*", features = ["cortex-m"] }
+embedded-hal = "0.2.4"
+cortex-m-rtic = "0.5.0"
+fixed = "1.2.0"
+typenum = "1.12.0"
+heapless = "0.5.6"
+num-complex = { version = "0.3.0", default-features = false }
+static_assertions = { version = "1.1.0" }
+num = { version = "0.3.0", default-features = false }
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
+opt-level = "z"
